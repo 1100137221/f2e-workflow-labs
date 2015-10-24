@@ -54,3 +54,4 @@ dist/
 
 ### Custom ###
 assets/vendor
+output*

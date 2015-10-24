@@ -12,3 +12,9 @@ gulp.task('mytask2', function(cb) {
 	console.log('Hello task1');
 	cb();
 });
+
+gulp.task('output1', function() {
+	gulp
+		.src('assets/vendor/bootstrap/**/*.js')
+		.pipe(gulp.dest('output1'));
+});
