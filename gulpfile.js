@@ -29,7 +29,7 @@ gulp.task('output2', ['clean'], function() {
 		.pipe(gulp.dest('output2'));
 });
 
-gulp.task('output3', function() {
+gulp.task('output3', ['clean', 'mytask1'], function() {
 	gulp
 		.src([
 				'assets/vendor/**/*.js',
@@ -39,7 +39,7 @@ gulp.task('output3', function() {
 });
 
 gulp.task('clean', function(cb) {
-	del(['output2/bootstrap/**', '!output2/bootstrap']).then(function (paths) {
+	del(['output3/**', '!output3']).then(function (paths) {
 		console.log('Deleted files/folders:\n', paths.join('\n'));
 		cb();
 	});
