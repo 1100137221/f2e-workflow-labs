@@ -55,3 +55,4 @@ dist/
 ### Custom ###
 assets/vendor
 output*
+assets/app*
