@@ -44,3 +44,20 @@ gulp.task('clean', function(cb) {
 		cb();
 	});
 });
+
+
+gulp.task('output-app', ['clean-app'],function() {
+	gulp
+		.src('app/**/*.js')
+		.pipe(gulp.dest('output-app'));
+});
+gulp.task('clean-app', function(cb) {
+	del(['output-app/**', '!output-app']).then(function () {
+		cb();
+	});
+});
+
+gulp.task('watch', function() {
+	gulp
+		.watch('app/**/*.js', ['output-app']);
+});
