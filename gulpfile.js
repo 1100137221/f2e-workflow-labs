@@ -4,9 +4,8 @@ gulp.task('default', ['mytask1', 'mytask2'], function() {
 	console.log('Hello default task');
 });
 
-gulp.task('mytask1', function(cb) {
+gulp.task('mytask1', function() {
 	console.log('Hello task1');
-	//cb();
 });
 
 gulp.task('mytask2', function(cb) {
