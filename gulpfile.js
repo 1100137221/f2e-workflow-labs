@@ -18,3 +18,12 @@ gulp.task('output1', function() {
 		.src('assets/vendor/bootstrap/**/*.js')
 		.pipe(gulp.dest('output1'));
 });
+
+gulp.task('output2', function() {
+	gulp
+		.src('assets/vendor/bootstrap/**/*.js',
+			{
+				base: 'assets/vendor/'
+			})
+		.pipe(gulp.dest('output2'));
+});
