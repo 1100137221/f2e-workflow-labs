@@ -1,0 +1,29 @@
+{
+  "name": "f2e-workflow-labs",
+  "version": "0.0.0",
+  "homepage": "https://github.com/doggy8088/f2e-workflow-labs",
+  "authors": [
+    "Will <doggy.huang@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.x",
+    "extras.angular.plus": "~0.9.3",
+    "angular-sanitize": "~1.4.7",
+    "moment": "~2.10.6",
+    "angular-ui-router": "~0.2.15",
+    "toastr": "~2.1.2",
+    "angular-animate": "~1.4.7",
+    "bootstrap": "~3.3.5"
+  }
+}
