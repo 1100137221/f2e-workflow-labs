@@ -9,6 +9,7 @@ gulp.task('mytask1', function(cb) {
 	cb();
 });
 
-gulp.task('mytask2', function() {
+gulp.task('mytask2', function(cb) {
 	console.log('Hello task1');
+	cb();
 });
