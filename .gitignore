@@ -61,3 +61,4 @@ assets/*.min.css
 *.min.html
 less_to_css
 bundle*
+tmp/
