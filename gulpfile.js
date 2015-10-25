@@ -4,6 +4,7 @@ var del = require('del');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
+var minifyHtml = require('gulp-minify-html');
 
 gulp.task('default', ['mytask1', 'mytask2'], function() {
 	console.log('Hello default task');
@@ -81,4 +82,12 @@ gulp.task('app', function() {
 			extname: '.min.js'
 		}))
 		.pipe(gulp.dest('assets'));
+		
+	gulp.src(['index.html'])
+		.pipe(minifyHtml())
+		.pipe(rename({
+			extname: '.min.html'
+		}))
+		.pipe(gulp.dest('./'));
+		
 });

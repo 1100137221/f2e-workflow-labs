@@ -57,3 +57,4 @@ assets/vendor
 output*
 assets/app*
 assets/src
+index.min.html
