@@ -60,3 +60,4 @@ assets/src
 assets/*.min.css
 *.min.html
 less_to_css
+bundle*
