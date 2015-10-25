@@ -77,16 +77,19 @@ gulp.task('app', function() {
 			'app/**/*.js'
 		])
 		.pipe(gulp.dest('assets/src'))
-		.pipe(concat('app.js'))
-		.pipe(gulp.dest('assets'))
-
+		
 		.pipe(sourcemaps.init())
+		
+			.pipe(concat('app.js'))
+			.pipe(gulp.dest('assets'))
+
 			.pipe(uglify({
 				mangle: false
 			}))
 			.pipe(rename({
 				extname: '.min.js'
 			}))
+			
 		.pipe(sourcemaps.write('./'))
 		
 		.pipe(gulp.dest('assets'));
