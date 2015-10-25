@@ -1,6 +1,8 @@
 var gulp = require('gulp');
 var del = require('del');
 
+var config = require('./config');
+	
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
@@ -25,15 +27,15 @@ gulp.task('mytask2', function(cb) {
 
 gulp.task('output1', function() {
 	gulp
-		.src('assets/vendor/bootstrap/**/*.js')
+		.src(config.assetsDir + '/vendor/bootstrap/**/*.js')
 		.pipe(gulp.dest('output1'));
 });
 
 gulp.task('output2', ['clean'], function() {
 	gulp
-		.src('assets/vendor/bootstrap/**/*.js',
+		.src(config.assetsDir + '/vendor/bootstrap/**/*.js',
 			{
-				base: 'assets/vendor/'
+				base: config.assetsDir + '/vendor/'
 			})
 		.pipe(gulp.dest('output2'));
 });
@@ -41,8 +43,8 @@ gulp.task('output2', ['clean'], function() {
 gulp.task('output3', ['clean', 'mytask1'], function() {
 	gulp
 		.src([
-				'assets/vendor/**/*.js',
-				'assets/vendor/**/*.css'
+				config.assetsDir + '/vendor/**/*.js',
+				config.assetsDir + '/vendor/**/*.css'
 			])
 		.pipe(gulp.dest('output3'));
 });
@@ -76,23 +78,21 @@ gulp.task('app', function() {
 			'app/**/*.module.js',
 			'app/**/*.js'
 		])
-		.pipe(gulp.dest('assets/src'))
+		.pipe(gulp.dest(config.assetsDir + '/src'))
 		
 		.pipe(sourcemaps.init())
 		
 			.pipe(concat('app.js'))
-			.pipe(gulp.dest('assets'))
+			.pipe(gulp.dest(config.assetsDir + ''))
 
-			.pipe(uglify({
-				mangle: false
-			}))
+			.pipe(uglify(config.uglifyOptions))
 			.pipe(rename({
 				extname: '.min.js'
 			}))
 			
 		.pipe(sourcemaps.write('./'))
 		
-		.pipe(gulp.dest('assets'));
+		.pipe(gulp.dest(config.assetsDir + ''));
 		
 	gulp.src(['index.html'])
 		.pipe(minifyHtml())
@@ -101,17 +101,17 @@ gulp.task('app', function() {
 		}))
 		.pipe(gulp.dest('./'));
 
-	gulp.src(['assets/styles.css'])
-		.pipe(minifyCss({compatibility: 'ie8'}))
+	gulp.src([config.assetsDir + '/styles.css'])
+		.pipe(minifyCss(config.cssOptions))
 		.pipe(rename({
 			extname: '.min.css'
 		}))
-		.pipe(gulp.dest('assets/'));
+		.pipe(gulp.dest(config.assetsDir + '/'));
 		
-	gulp.src(['assets/styles.less'])
+	gulp.src([config.assetsDir + '/styles.less'])
 		.pipe(less())
 		.pipe(gulp.dest('less_to_css/'))
-		.pipe(minifyCss({compatibility: 'ie8'}))
+		.pipe(minifyCss(config.cssOptions))
 		.pipe(rename({
 			extname: '.min.css'
 		}))
