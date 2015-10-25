@@ -8,6 +8,7 @@ var minifyHtml = require('gulp-minify-html');
 var minifyCss  = require('gulp-minify-css');
 var less = require('gulp-less');
 var path = require('path');
+var sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('default', ['mytask1', 'mytask2'], function() {
 	console.log('Hello default task');
@@ -78,12 +79,16 @@ gulp.task('app', function() {
 		.pipe(gulp.dest('assets/src'))
 		.pipe(concat('app.js'))
 		.pipe(gulp.dest('assets'))
-		.pipe(uglify({
-			mangle: false
-		}))
-		.pipe(rename({
-			extname: '.min.js'
-		}))
+
+		.pipe(sourcemaps.init())
+			.pipe(uglify({
+				mangle: false
+			}))
+			.pipe(rename({
+				extname: '.min.js'
+			}))
+		.pipe(sourcemaps.write('./'))
+		
 		.pipe(gulp.dest('assets'));
 		
 	gulp.src(['index.html'])
