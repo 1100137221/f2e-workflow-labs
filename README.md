@@ -185,3 +185,10 @@
 	- 參見 [如何在 Windows 平台變更 Node.js / npm 全域模組的預設安裝路徑](http://blog.miniasp.com/post/2015/09/02/Change-npm-default-global-installation-directory-for-nodejs-modules-in-Windows.aspx) 文章。
 2. 請問我公司因為需要設定代理伺服器 (Proxy Server) 才能上網，請問要做那些設定才好呢？
 	- 參見 [如何在強制使用代理伺服器的環境下設定 git, npm, bower, gem, ionic 工具](http://blog.miniasp.com/post/2015/09/03/proxy-settings-for-git-npm-bower-gem-ionic.aspx) 文章。
+
+## 使用此範例專案
+
+    npm install
+    bower install
+    gulp app
+    npm start
